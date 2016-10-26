@@ -155,10 +155,12 @@ class SingleLinkedList:
                 previous.set_next(current.get_next())
                 self.length -= 1
 
+    """ Method to clear the list """
     def clear(self):
         self.head = None
         self.length = 0
 
+    """ Method to find the nth node from the end of the list """
     def find_nth_node_from_end(self, n):
         internal_dict = {}
         index = 1
