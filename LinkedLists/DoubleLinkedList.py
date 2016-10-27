@@ -5,6 +5,7 @@ head --->1 <---> 2 <---> 3 <----> 4 <---->5 <--- tail
                                           None
 """
 
+
 class DoubleLinkedList:
     """Constructor. Initializes the list, its length, head and tail references"""
     def __init__(self):
@@ -29,30 +30,30 @@ class DoubleLinkedList:
 
     """ Method to INSERT a new node at the beginning of the list """
     def insert_at_beginning(self, data):
-        new_Node = DoubleLinkedListNode()
-        new_Node.set_data(data)
+        new_node = DoubleLinkedListNode()
+        new_node.set_data(data)
 
         if self.head is None:
-            self.head = new_Node
-            self.tail = new_Node
+            self.head = new_node
+            self.tail = new_node
         else:
-            new_Node.set_next(self.head)
-            self.head.set_prev(new_Node)
-            self.head = new_Node
+            new_node.set_next(self.head)
+            self.head.set_prev(new_node)
+            self.head = new_node
         self.length += 1
 
     """ Method to INSERT a new node at the end of the list """
     def insert_at_end(self, data):
-        new_Node = DoubleLinkedListNode()
-        new_Node.set_data(data)
+        new_node = DoubleLinkedListNode()
+        new_node.set_data(data)
 
         if self.length is None:
-            self.tail = new_Node
-            self.head = new_Node
+            self.tail = new_node
+            self.head = new_node
         else:
-            new_Node.set_prev(self.tail)
-            self.tail.set_next(new_Node)
-            self.tail = new_Node
+            new_node.set_prev(self.tail)
+            self.tail.set_next(new_node)
+            self.tail = new_node
         self.length += 1
 
     """ Method to add a new element to the list. Default insert at the end """
@@ -129,6 +130,7 @@ class DoubleLinkedList:
         self.head = None
         self.tail = None
         self.length = 0
+
 
 def main():
     l = DoubleLinkedList()

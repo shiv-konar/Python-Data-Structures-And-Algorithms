@@ -18,28 +18,28 @@ class SingleLinkedList:
 
     """ Method to INSERT a node at the beginning of the list """
     def insert_at_beginning(self, data):
-        new_Node = SingleLinkedListNode()
-        new_Node.set_data(data)
+        new_node = SingleLinkedListNode()
+        new_node.set_data(data)
 
         if self.length == 0:
-            self.head = new_Node
+            self.head = new_node
         else:
-            new_Node.set_next(self.head)
-            self.head = new_Node
+            new_node.set_next(self.head)
+            self.head = new_node
         self.length += 1
 
     """ Method to INSERT a node at the end of the list """
     def insert_at_end(self, data):
-        new_Node = SingleLinkedListNode()
-        new_Node.set_data(data)
+        new_node = SingleLinkedListNode()
+        new_node.set_data(data)
 
         if self.length == 0:
-            self.head = new_Node
+            self.head = new_node
         else:
             current = self.head
             while current.has_next():
                 current = current.get_next()
-            current.set_next(new_Node)
+            current.set_next(new_node)
         self.length += 1
 
     """ Method to INSERT a node at the given position, i.e. after postion - 1 . Position count start at 0 """
@@ -53,15 +53,15 @@ class SingleLinkedList:
                 if position == self.length:
                     self.insert_at_end(data)
                 else:
-                    new_Node = SingleLinkedListNode()
-                    new_Node.set_data(data)
+                    new_node = SingleLinkedListNode()
+                    new_node.set_data(data)
                     current = self.head
                     count = 0
                     while count < (position - 1):
                         current = current.get_next()
                         count += 1
-                    new_Node.set_next(current.get_next())
-                    current.set_next(new_Node)
+                    new_node.set_next(current.get_next())
+                    current.set_next(new_node)
                     self.length += 1
 
     """ Method to INSERT a new node to the list. Default insertion at the end of the list """
@@ -202,5 +202,7 @@ def main():
     # l.clear()
     # l.print_list()
     l.find_nth_node_from_end(4)
+
+
 if __name__ == '__main__':
     main()
