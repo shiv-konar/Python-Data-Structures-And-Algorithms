@@ -1,5 +1,9 @@
 from Nodes import DoubleLinkedListNode
-
+"""
+head --->1 <---> 2 <---> 3 <----> 4 <---->5 <--- tail
+                                          ᛎ
+                                          None
+"""
 
 class DoubleLinkedList:
     """Constructor. Initializes the list, its length, head and tail references"""

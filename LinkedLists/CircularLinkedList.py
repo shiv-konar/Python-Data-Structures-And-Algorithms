@@ -1,11 +1,17 @@
 from Nodes import SingleLinkedListNode
+"""
+head --->1 ---> 2 ---> 3 ----> 4 ---->5 -
+         ᛏ______________________________|
+"""
 
 
 class CircularLinkedList:
+    """ Constructor. Initializes the head and length of the list """
     def __init__(self):
         self.head = None
         self.length = 0
 
+    """ Method to print the elements of the list """
     def print_list(self):
         if self.length == 0:
             print "List is empty"
@@ -18,6 +24,7 @@ class CircularLinkedList:
                 current = current.get_next()
             print
 
+    """ Method to INSERT at the beginning of the list """
     def insert_at_beginning(self, data):
         new_node = SingleLinkedListNode()
         new_node.set_data(data)
@@ -33,6 +40,7 @@ class CircularLinkedList:
             self.head = new_node
         self.length += 1
 
+    """ Method to INSERT at the end of the list """
     def insert_at_end(self, data):
         if self.length == 0:
             self.insert_at_beginning(data)
@@ -46,6 +54,7 @@ class CircularLinkedList:
             current.set_next(new_node)
             self.length += 1
 
+    """ Method to DELETE the node at the front of the list """
     def delete_at_beginning(self):
         if self.length == 0:
             print "List is empty"
@@ -57,6 +66,7 @@ class CircularLinkedList:
             self.head = self.head.get_next()
             self.length -= 1
 
+    """ Method to DELETE the node at the end of the list """
     def delete_at_end(self):
         if self.length == 0:
             print "List is empty"
@@ -69,6 +79,7 @@ class CircularLinkedList:
             previous.set_next(self.head)
             self.length -= 1
 
+    """ Method to DELETE the node, given a postion """
     def delete_at_position(self, position):
         if position > self.length - 1 or position < 0:
             print "Invalid position"
@@ -86,6 +97,7 @@ class CircularLinkedList:
                 current.set_next(current.get_next().get_next())
                 self.length -= 1
 
+    """ Method to DELETE a node, given a value """
     def delete_value(self, value):
         if self.length == 0:
             print "List is empty"
