@@ -165,5 +165,76 @@ class SingleLinkedList:
         self.head = None
         self.length = 0
 
+    """ Method to find nth node from the end of list using multiple iterations """
     def find_nth_node_from_end_solution1(self, n):
-        pass
+        if self.length < n:
+            print "Length of list less than " + str(n)
+        elif self.length == n:
+            print str(self.head.get_data())
+        elif n == 0:
+            print "Position n should start from 1"
+        else:
+            count = 0
+            current = self.head
+            nth_pointer = self.head
+            while count < n - 1:
+                current = current.get_next()
+                count += 1
+            while current.has_next():
+                current = current.get_next()
+                nth_pointer = nth_pointer.get_next()
+            print nth_pointer.get_data()
+
+    """ Method to find the nth node from the end of the list using hash map """
+    def find_nth_node_from_end_solution2(self, n):
+        if self.length < n:
+            print "Length of list less than " + str(n)
+        elif self.length == n:
+            print str(self.head.get_data())
+        elif n == 0:
+            print "Position n should start from 1"
+        else:
+            internal_dictionary = {}
+            current = self.head
+            index = 1
+            while current is not None:
+                internal_dictionary[index] = current
+                index += 1
+                current = current.get_next()
+            print str(internal_dictionary[len(internal_dictionary) - n + 1].get_data())
+
+    """ Method to find the nth node from the end of the list in a single scan """
+    def find_nth_node_from_end_solution3(self, n):
+        if self.length < n:
+            print "Length of list less than " + str(n)
+        elif self.length == n:
+            print str(self.head.get_data())
+        elif n == 0:
+            print "Position n should start from 1"
+        else:
+            nth_node_position = self.length - n + 1
+            count = 1
+            nth_node = self.head
+            while count < nth_node_position:
+                nth_node = nth_node.get_next()
+                count += 1
+            print str(nth_node.get_data())
+
+
+def main():
+    l = SingleLinkedList()
+    l.add(1)
+    l.add(2)
+    l.add(3)
+    l.add(4)
+    l.add(5)
+    l.add(6)
+    l.add(7)
+    l.print_list()
+    l.find_nth_node_from_end_solution1(3)
+    l.find_nth_node_from_end_solution2(3)
+    l.find_nth_node_from_end_solution3(3)
+
+
+if __name__ == '__main__':
+    main()
